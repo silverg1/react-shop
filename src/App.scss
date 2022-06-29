@@ -21,6 +21,8 @@
       }
     }
   }
+
+  // Main
   .main-bg {
     height:300px;
     background: url('https://codingapple.com/wp-content/uploads/2022/04/bg.png');
@@ -65,6 +67,7 @@
     cursor: pointer;
   }
 
+  // Detail
   .detail_page {
     opacity: 0;
     transition: opacity 0.7s;
@@ -129,6 +132,21 @@
       height: 150px;
       border-radius: 0 0 10px 10px;
       padding: 10px;
+    }
+  }
+
+  // Cart
+  .cart_table {
+    width: calc(100% - 40px);
+    margin: 30px auto;
+    border-top: 1px solid #000;
+    border-collapse: collapse;
+    th, td {
+      border-bottom: 1px solid #000;
+      height: 40px;
+    }
+    td {
+      text-align: center;
     }
   }
 }
