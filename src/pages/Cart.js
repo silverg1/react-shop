@@ -5,7 +5,7 @@ import { changeName, upCount } from '../store';
 
 function Cart() {
     const cart = useSelector(state => state.cart);
-    const user = useSelector(state => state.user);
+    // const user = useSelector(state => state.user);
     const dispatch = useDispatch();
 
     return (
@@ -30,7 +30,7 @@ function Cart() {
                             <td>{item.count}</td>
                             <td>
                                 <button onClick={() => {
-                                    dispatch(upCount());
+                                    dispatch(upCount(item.id));
                                 }}>UP</button>
                             </td>
                         </tr>

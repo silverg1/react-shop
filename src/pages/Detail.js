@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useDispatch  } from 'react-redux';
+import { addItem } from '../store';
 
 function Detail(props) {
     let navi = useNavigate();
@@ -19,6 +21,8 @@ function Detail(props) {
   
     useEffect(() => setShow(true), []);
   
+    const dispatch = useDispatch();
+
     return (
       <div className={`detail_page ${showPage ? 'show' : ''}`}>
         <button className="btn_back" onClick={() => navi(-1)}>뒤로</button>
@@ -29,6 +33,9 @@ function Detail(props) {
           <p>{currentItem.content}</p>
           <p>{currentItem.price}</p>
         </div>
+        <button className="btn_order" onClick={() => {
+          dispatch(addItem({id: id, name: currentItem.title, count: 1}));
+        }}>주문하기</button>
         <div className="tab-box">
           <div className="tabs">
             <div className={`tab ${tab === 0 ? 'on' : ''}`} onClick={() => setTab(0)}>탭A</div>

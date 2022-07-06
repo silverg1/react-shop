@@ -17,9 +17,12 @@ let cart = createSlice({
         {id : 2, name : 'Grey Yordan', count : 1}
     ],
     reducers: {
-        upCount(state) {
-            // array에서 변경하는 법 검색하기
-            return state[0].count += 1;
+        upCount(state, action) {
+            const target = state.find(s => s.id === action.payload);
+            target.count++;
+        },
+        addItem(state, action) {
+            state.push(action.payload);
         }
     }
 })
@@ -32,4 +35,4 @@ export default configureStore({
 }) 
 
 export let { changeName } = user.actions;
-export let { upCount } = cart.actions;
+export let { upCount, addItem } = cart.actions;
