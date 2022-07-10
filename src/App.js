@@ -19,8 +19,13 @@ function App() {
       alert("숫자만 입력하시오");
       setInputText('');
     }
-  }, [inputText])
-  
+  }, [inputText]);
+
+  useEffect(() => {
+    if(!localStorage.getItem('watched')) {
+      localStorage.setItem('watched', JSON.stringify([]));
+    }
+  }, []);
 
   return (
     <div className="App">

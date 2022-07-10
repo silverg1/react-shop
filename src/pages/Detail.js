@@ -13,13 +13,19 @@ function Detail(props) {
     let [viewBox, setViewBox] = useState(false);
     let [tab, setTab] = useState(0);
     let [showPage, setShow] = useState(false);
-  
+
     // useEffect(() => {
     //   let hideBox = setTimeout(() => setViewBox(false), 2000);
     //   return () => clearTimeout(hideBox);
     // }, []);
-  
     useEffect(() => setShow(true), []);
+    useEffect(() => {
+      let watched = JSON.parse(localStorage.getItem('watched'));
+      watched.push(id);
+      watched = new Set(watched);
+      watched = Array.from(watched);
+      localStorage.setItem('watched', JSON.stringify(watched));
+    }, []);
   
     const dispatch = useDispatch();
 
